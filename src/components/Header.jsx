@@ -7,21 +7,34 @@ export default function Header({ onRefresh, loading, lastUpdated }) {
     <header className="w-full bg-white shadow-sm border-b border-slate-200">
       <div className="max-w-[1440px] mx-auto px-3 sm:px-5 py-3">
         <div className="flex flex-col lg:flex-row items-stretch gap-3">
-          {/* Left: 2 Reservoir Images */}
-          <div className="grid grid-cols-2 gap-2.5 lg:w-[360px] xl:w-[400px] shrink-0">
-            {RESERVOIR_IMAGES.map((img, idx) => (
-              <div
-                key={idx}
-                className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-100 h-24 sm:h-28 lg:h-full min-h-[96px] shadow-xs"
+          {/* Left: 2 Reservoir Images + Credit */}
+          <div className="flex flex-col gap-1 lg:w-[360px] xl:w-[400px] shrink-0">
+            <div className="grid grid-cols-2 gap-2.5 flex-1">
+              {RESERVOIR_IMAGES.map((img, idx) => (
+                <div
+                  key={idx}
+                  className="relative overflow-hidden rounded-lg border border-slate-200 bg-slate-100 h-24 sm:h-28 lg:h-full min-h-[96px] shadow-xs"
+                >
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    className="w-full h-full object-cover"
+                    loading="eager"
+                  />
+                </div>
+              ))}
+            </div>
+            <p className="text-[11px] text-slate-500 text-center lg:text-left truncate">
+              ขอบคุณภาพ:{' '}
+              <a
+                href="https://mysakonnakhon.com/listing/tad-hai-yai-reservoir/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#802A52] hover:underline"
               >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                />
-              </div>
-            ))}
+                mysakonnakhon.com/listing/tad-hai-yai-reservoir
+              </a>
+            </p>
           </div>
 
           {/* Right: Maroon Banner (#802A52) */}
